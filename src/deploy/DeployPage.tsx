@@ -40,31 +40,31 @@ export const DeployPage: React.FC = () => {
     <div className="grid cols-2">
       <div className="panel">
         <h3 style={{ marginTop: 0 }}>Canary - Weight</h3>
-        <div className="row"><label>Namespace</label><input className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
-        <div className="row"><label>Service</label><input className="input" value={service} onChange={e=>setService(e.target.value)} /></div>
-        <div className="row"><label>Stable %</label><input className="input" type="number" value={stableWeight} onChange={e=>setStableWeight(Number(e.target.value))} /></div>
-        <div className="row"><label>Canary %</label><input className="input" type="number" value={canaryWeight} onChange={e=>setCanaryWeight(Number(e.target.value))} /></div>
-        <button className="btn primary" disabled={busy==='weight'} onClick={()=>run('weight')}>{busy==='weight'?'Working...':'Apply'}</button>
+        <div className="row"><label htmlFor="ns-weight">Namespace</label><input id="ns-weight" className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
+        <div className="row"><label htmlFor="svc-weight">Service</label><input id="svc-weight" className="input" value={service} onChange={e=>setService(e.target.value)} /></div>
+        <div className="row"><label htmlFor="stable">Stable %</label><input id="stable" className="input" type="number" value={stableWeight} onChange={e=>setStableWeight(Number(e.target.value))} /></div>
+        <div className="row"><label htmlFor="canary">Canary %</label><input id="canary" className="input" type="number" value={canaryWeight} onChange={e=>setCanaryWeight(Number(e.target.value))} /></div>
+        <button className="btn primary" disabled={busy==='weight'} onClick={()=>run('weight')}>{busy==='weight'?'Working...':'Apply Weight'}</button>
         {message && <div className="hint" style={{ marginTop: 8 }}>{message}</div>}
       </div>
 
       <div className="panel">
         <h3 style={{ marginTop: 0 }}>Swimlane - Header</h3>
-        <div className="row"><label>Namespace</label><input className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
-        <div className="row"><label>Ingress</label><input className="input" value={ingress} onChange={e=>setIngress(e.target.value)} /></div>
-        <div className="row"><label>Host</label><input className="input" value={host} onChange={e=>setHost(e.target.value)} /></div>
-        <div className="row"><label>Header Name</label><input className="input" value={headerName} onChange={e=>setHeaderName(e.target.value)} /></div>
-        <div className="row"><label>Header Value</label><input className="input" value={headerValue} onChange={e=>setHeaderValue(e.target.value)} /></div>
-        <button className="btn primary" disabled={busy==='header'} onClick={()=>run('header')}>{busy==='header'?'Working...':'Apply'}</button>
+        <div className="row"><label htmlFor="ns-header">Namespace</label><input id="ns-header" className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
+        <div className="row"><label htmlFor="ingress-header">Ingress</label><input id="ingress-header" className="input" value={ingress} onChange={e=>setIngress(e.target.value)} /></div>
+        <div className="row"><label htmlFor="host-header">Host</label><input id="host-header" className="input" value={host} onChange={e=>setHost(e.target.value)} /></div>
+        <div className="row"><label htmlFor="header-name">Header Name</label><input id="header-name" className="input" value={headerName} onChange={e=>setHeaderName(e.target.value)} /></div>
+        <div className="row"><label htmlFor="header-value">Header Value</label><input id="header-value" className="input" value={headerValue} onChange={e=>setHeaderValue(e.target.value)} /></div>
+        <button className="btn primary" disabled={busy==='header'} onClick={()=>run('header')}>{busy==='header'?'Working...':'Apply Header'}</button>
       </div>
 
       <div className="panel" style={{ gridColumn: '1 / -1' }}>
         <h3 style={{ marginTop: 0 }}>Blue-Green - Switch Ingress Backend</h3>
-        <div className="row"><label>Namespace</label><input className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
-        <div className="row"><label>Ingress</label><input className="input" value={ingress} onChange={e=>setIngress(e.target.value)} /></div>
-        <div className="row"><label>Host</label><input className="input" value={host} onChange={e=>setHost(e.target.value)} /></div>
-        <div className="row"><label>Path</label><input className="input" value={path} onChange={e=>setPath(e.target.value)} /></div>
-        <div className="row"><label>Target Service</label><input className="input" value={targetService} onChange={e=>setTargetService(e.target.value)} /></div>
+        <div className="row"><label htmlFor="ns-bg">Namespace</label><input id="ns-bg" className="input" value={ns} onChange={e=>setNs(e.target.value)} /></div>
+        <div className="row"><label htmlFor="ingress-bg">Ingress</label><input id="ingress-bg" className="input" value={ingress} onChange={e=>setIngress(e.target.value)} /></div>
+        <div className="row"><label htmlFor="host-bg">Host</label><input id="host-bg" className="input" value={host} onChange={e=>setHost(e.target.value)} /></div>
+        <div className="row"><label htmlFor="path-bg">Path</label><input id="path-bg" className="input" value={path} onChange={e=>setPath(e.target.value)} /></div>
+        <div className="row"><label htmlFor="target-svc-bg">Target Service</label><input id="target-svc-bg" className="input" value={targetService} onChange={e=>setTargetService(e.target.value)} /></div>
         <button className="btn success" disabled={busy==='bluegreen'} onClick={()=>run('bluegreen')}>{busy==='bluegreen'?'Working...':'Switch'}</button>
       </div>
     </div>

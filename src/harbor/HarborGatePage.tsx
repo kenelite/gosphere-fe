@@ -26,11 +26,11 @@ export const HarborGatePage: React.FC = () => {
   return (
     <div className="panel">
       <h3 style={{ marginTop: 0 }}>Harbor Gate Sync</h3>
-      <div className="row"><label>Project</label><input className="input" value={project} onChange={e=>setProject(e.target.value)} /></div>
-      <div className="row"><label>Repository</label><input className="input" value={repository} onChange={e=>setRepository(e.target.value)} /></div>
-      <div className="row"><label>Reference</label><input className="input" placeholder="v1.2.3 or sha" value={reference} onChange={e=>setReference(e.target.value)} /></div>
-      <div className="row"><label>Argo App Name</label><input className="input" value={appName} onChange={e=>setAppName(e.target.value)} /></div>
-      <div className="row"><label>Argo App Namespace</label><input className="input" value={appNamespace} onChange={e=>setAppNamespace(e.target.value)} /></div>
+      <div className="row"><label htmlFor="project">Project</label><input id="project" className="input" value={project} onChange={e=>setProject(e.target.value)} /></div>
+      <div className="row"><label htmlFor="repository">Repository</label><input id="repository" className="input" value={repository} onChange={e=>setRepository(e.target.value)} /></div>
+      <div className="row"><label htmlFor="reference">Reference</label><input id="reference" className="input" placeholder="v1.2.3 or sha" value={reference} onChange={e=>setReference(e.target.value)} /></div>
+      <div className="row"><label htmlFor="app-name">Argo App Name</label><input id="app-name" className="input" value={appName} onChange={e=>setAppName(e.target.value)} /></div>
+      <div className="row"><label htmlFor="app-namespace">Argo App Namespace</label><input id="app-namespace" className="input" value={appNamespace} onChange={e=>setAppNamespace(e.target.value)} /></div>
       <button className="btn primary" disabled={busy} onClick={submit}>{busy?'Working...':'Trigger'}</button>
       {message && <div className="hint" style={{ marginTop: 8 }}>{message}</div>}
     </div>

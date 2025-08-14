@@ -61,20 +61,20 @@ export const TenantsPage: React.FC = () => {
         <h3 style={{ marginTop: 0 }}>Create Tenant</h3>
         <form onSubmit={onCreate} className="form">
           <div className="row">
-            <label>Name</label>
-            <input className="input" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+            <label htmlFor="tenant-name">Name</label>
+            <input id="tenant-name" className="input" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
           </div>
           <div className="row">
-            <label>Namespace</label>
-            <input className="input" value={form.namespace} onChange={e => setForm({ ...form, namespace: e.target.value })} required />
+            <label htmlFor="tenant-namespace">Namespace</label>
+            <input id="tenant-namespace" className="input" value={form.namespace} onChange={e => setForm({ ...form, namespace: e.target.value })} required />
           </div>
           <div className="row">
-            <label>CPU Limit</label>
-            <input className="input" placeholder="e.g. 2" value={form.cpuLimit} onChange={e => setForm({ ...form, cpuLimit: e.target.value })} />
+            <label htmlFor="tenant-cpu">CPU Limit</label>
+            <input id="tenant-cpu" className="input" placeholder="e.g. 2" value={form.cpuLimit} onChange={e => setForm({ ...form, cpuLimit: e.target.value })} />
           </div>
           <div className="row">
-            <label>Memory Limit</label>
-            <input className="input" placeholder="e.g. 4Gi" value={form.memoryLimit} onChange={e => setForm({ ...form, memoryLimit: e.target.value })} />
+            <label htmlFor="tenant-memory">Memory Limit</label>
+            <input id="tenant-memory" className="input" placeholder="e.g. 4Gi" value={form.memoryLimit} onChange={e => setForm({ ...form, memoryLimit: e.target.value })} />
           </div>
           <div style={{ marginTop: 16 }}>
             <button className="btn primary" disabled={creating}>{creating ? 'Creating...' : 'Create'}</button>
