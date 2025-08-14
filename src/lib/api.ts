@@ -74,7 +74,12 @@ export interface HarborGateSyncRequest {
 export const TenantAPI = {
   list: async (): Promise<Tenant[]> => {
     const { data } = await api.get('/v1/tenants')
-    return data
+    if (Array.isArray(data)) return data
+    // Normalize common backend shapes
+    if (Array.isArray((data as any)?.items)) return (data as any).items
+    if (Array.isArray((data as any)?.tenants)) return (data as any).tenants
+    if (Array.isArray((data as any)?.list)) return (data as any).list
+    return []
   },
   create: async (tenant: Omit<Tenant, 'id' | 'createdAt'>): Promise<Tenant> => {
     const { data } = await api.post('/v1/tenants', tenant)

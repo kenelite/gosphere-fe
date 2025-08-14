@@ -14,7 +14,7 @@ export const TenantsPage: React.FC = () => {
     setError(null)
     try {
       const data = await TenantAPI.list()
-      setTenants(data)
+      setTenants(Array.isArray(data) ? data : [])
     } catch (e: any) {
       setError(e.message)
     } finally {
@@ -97,7 +97,7 @@ export const TenantsPage: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {tenants.map(t => (
+              {(Array.isArray(tenants) ? tenants : []).map(t => (
                 <tr key={t.id}>
                   <td>{t.id}</td>
                   <td>{t.name}</td>
